@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - RAILS_MASTER_KEY=2877d292cee13898967666f1aab2859b
