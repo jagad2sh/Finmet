@@ -1,27 +1,32 @@
 <h1>Finmet Badminton League</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Total Matches</th>
-      <th>Wins</th>
-      <th>Losses</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @players.each do |player| %>
+<% if @players.present? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= player.id %></td>
-        <td><%= player.name %></td>
-        <td><%= player.wins.count + player.losses.count %></td>
-        <td><%= player.wins.count %></td>
-        <td><%= player.losses.count %></td>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Total Matches</th>
+        <th>Wins</th>
+        <th>Losses</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @players.each do |player| %>
+        <tr>
+          <td><%= player.id %></td>
+          <td><%= player.name.titleize %></td>
+          <td><%= player.wins.count + player.losses.count %></td>
+          <td><%= player.wins.count %></td>
+          <td><%= player.losses.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No Match data found<p>
+<% end %>
 
+<br>
 <%= link_to "See All Players", players_path %> | 
 <%= link_to "See All Matches", matches_path %>

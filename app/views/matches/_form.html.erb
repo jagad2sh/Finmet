@@ -13,12 +13,12 @@
 
   <div>
     <%= form.label :winner_id, style: "display: block" %>
-    <%= form.text_field :winner_id %>
+    <%= form.collection_select :winner_id, Player.all, :id, :name, { prompt: "Select Winner" } %>
   </div>
 
   <div>
     <%= form.label :loser_id, style: "display: block" %>
-    <%= form.text_field :loser_id %>
+    <%= form.collection_select :loser_id, Player.all, :id, :name, { prompt: "Select Loser" } %>
   </div>
 
   <div>
