@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
+  get "leaderboard/index"
   resources :matches
   resources :players
-  root "players#index"
+  root "leaderboard#index"
 end
